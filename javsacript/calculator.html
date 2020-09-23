@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CALCULATOR</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style type="text/css">
+	ul{
+		padding: 0;
+		margin: 0;
+	}
+	li{
+		list-style-type: none;
+	}
+	.wrapper{
+		max-width:500px;
+		margin: 0 auto;
+	}
+</style>
+<body>
+<div class="container">
+	<div class="wrapper mt-3 bg-secondary p-3">
+		<input type="text" name="" id="screen" class="form-control p-3 mb-3">
+		<div class="row" id="calc_wrapper">
+            <div class="col-md-3"><h4 class="text-center text-white rounded bg-primary bg" onclick="dis('1')">1</h4></div>
+			<div class="col-md-3"><h4 class="text-center text-white rounded bg-primary" onclick="dis('2')">2</h4></div>
+			<div class="col-md-3"><h4 class="text-center text-white rounded bg-primary" onclick="dis('3')">3</h4></div>
+			<div class="col-md-3"><h4 class="text-center text-white rounded bg-primary"onclick="dis('4')">4</h4></div>
+			<div class="col-md-3"><h4 class="text-center text-white rounded bg-primary"onclick="dis('5')">5</h4></div>
+			<div class="col-md-3"><h4 class="text-center text-white rounded bg-primary"onclick="dis('6')">6</h4></div>
+             <div class="col-md-3"><h4 class="text-center text-white rounded bg-primary"onclick="dis('7')">7</h4></div>
+			<div class="col-md-3"><h4 class="text-center text-white rounded bg-primary"onclick="dis('8')">8</h4></div>
+			<div class="col-md-3"><h4 class="text-center text-white rounded bg-primary"onclick="dis('9')">9</h4></div>
+			<div class="col-md-3"><h4 class="text-center text-white rounded bg-primary"onclick="dis('0')">0</h4></div>
+			<!-- oprators -->
+	        <div class="col-md-3"><h4 class="text-center text-white rounded  bg-success" id="plus" onclick="dis('+')"><i class="fa fa-plus"></i></h4></div>
+			<div class="col-md-3"><h4 class="text-center text-white rounded  bg-success" id="multi" onclick="dis('*')">*</h4></div>
+			<div class="col-md-3"><h4 class="text-center text-white rounded  bg-success" id="minus" onclick="dis('-')"><i class="fa fa-minus"></i></h4></div>
+			<div class="col-md-3"><h4 class="text-center text-white rounded  bg-success" id="percent" onclick="dis('%')">%</h4></div>
+			<div class="col-md-3"><h4 class="text-center text-white rounded  bg-success" id="divide" onclick="dis('/')">/</h4></div>
+			<div class="col-md-3"><h4 class="text-center text-white rounded  bg-danger"id="clear" onclick="clr()">clear</h4></div>
+			
+			 <div class="col-md-6"><h4 class="text-center text-white rounded  bg-danger"id="clear" onclick="erase()"><i class="fa fa-times"></i></h4></div>
+			 <div class="col-md-6"><h4 class="text-center text-white rounded  bg-success" id="solve" onclick="solve()">=</h4></div>
+			
+        </div>
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+
+function dis(val){ 
+    document.getElementById("screen").value+=val ;
+} 
+function clr(){
+   var clear = document.getElementById('screen');
+   clear.value='';
+}
+  function solve() 
+    { 
+             var a = document.getElementById("screen").value;
+             var b = eval(a);
+             document.getElementById("screen").value = b; 
+    }
+    function erase(){
+    	var a = document.getElementById("screen").value;
+    	var arry = [a];
+    	var str = String(arry);
+    	var newStr = str.slice(0 ,-1);
+    	 a = newStr;
+    	 document.querySelector("#screen").value = a;
+}       
+
+</script>	
+</body>
+</html>

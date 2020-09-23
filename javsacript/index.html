@@ -6,84 +6,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
  <style type="text/css">
-   img{
-    max-width: 100%;
-   }
-   ul{
-    padding: 0;
-    margin: 0;
-   }
-      .showSlide {  
-            display: none  
-        }  
-         .showSlide img {  
-                width: 100%;  
-                height:350px;
-         }  
-        .image-slider-wrapper {
-             position: relative;
-        }
-         
-        .left, .right {  
-            cursor: pointer;  
-            position: absolute;  
-            top: 50%;  
-            width: auto;  
-            padding: 16px;  
-            margin-top: -22px;  
-            color: white;  
-            font-weight: bold;  
-            font-size: 18px;  
-            transition: 0.6s ease;  
-            border-radius: 0 3px 3px 0;  
-        }  
-         .left{
-          left:0;
-         }
-
-        .right {  
-            right: 0;  
-            border-radius: 3px 0 0 3px;  
-        }  
-            .left:hover, .right:hover {  
-                background-color: rgba(115, 115, 115, 0.8);  
-            }  
-         
-        .active {  
-            background-color: #717171;  
-        }  
-        /* Fading animation */  
-        .fading {  
-            -webkit-animation-name: fading;  
-            -webkit-animation-duration: 1.5s;  
-            animation-name: fading;  
-            animation-duration: 1.5s;  
-        }  
-        @-webkit-keyframes fading {  
-            from {  
-                opacity: .4  
-            }  
-            to {  
-                opacity: 1  
-            }  
-        }  
-  
-        @keyframes fading {  
-            from {  
-                opacity: .4  
-            }  
-            to {  
-                opacity: 1  
-            }  
-        }  
-   li{list-style-type: none;}
+li{list-style-type: none;}
+img{max-width: 100%;}
+ul{padding: 0;margin: 0;}
+.showSlide {display: none;}
+.showSlide img {  
+ width: 100%;  
+ height:500px;
+ object-fit: cover;
+}  
+.image-slider-wrapper {
+position: relative;}
+.left, .right {  
+cursor: pointer;  
+position: absolute;  
+top: 50%;  
+width: auto;  
+padding: 16px;  
+margin-top: -22px;  
+color: white;  
+font-weight: bold;  
+font-size: 18px;  
+transition: 0.6s ease;  
+border-radius: 0 3px 3px 0;  
+}  
+.left{left:0;}
+.right {right: 0;border-radius: 3px 0 0 3px;}  
+.left:hover, .right:hover
+ {background-color: rgba(115, 115, 115, 0.8);}  
+.active {  
+ background-color: #717171;  
+}  
+/* Fading animation */  
+.fading {  
+-webkit-animation-name: fading;  
+-webkit-animation-duration: 1.5s;  
+animation-name: fading;  
+animation-duration: 1.5s;  
+}  
+@keyframes fading {  
+from {  
+ opacity: .4  
+}  
+to {  
+opacity: 1  
+}  
+}  
+   
  </style>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-  <a class="navbar-brand" href="#">SCRIPT - JAVA</a>
+  <a class="navbar-brand" href="#">NBA</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon">+</span>
   </button>
@@ -104,18 +80,20 @@
   <div class="container">
     <div class="image-slider-wrapper">
       <ul class="image-slider">
-        <li class="showSlide fading"><img src="images/img1.jpg" alt=" image1"></li>
-        <li class="showSlide  fading"><img src="images/img2.jpg" alt="image2"></li>
-        <li class="showSlide  fading"><img src="images/img3.jpg" alt="image3"></li>
+        <li class="showSlide fading"><img src="https://images.pexels.com/photos/3715398/pexels-photo-3715398.jpeg?cs=srgb&dl=pexels-soulful-pizza-3715398.jpg&fm=jpg" alt=" image1"></li>
+        <li class="showSlide  fading"><img src="https://images.pexels.com/photos/259915/pexels-photo-259915.jpeg?cs=srgb&dl=pexels-pixabay-259915.jpg&fm=jpg" alt="image2"></li>
+        <li class="showSlide  fading"><img src="https://images.pexels.com/photos/1097456/pexels-photo-1097456.jpeg?cs=srgb&dl=pexels-sebastiaan-stam-1097456.jpg&fm=jpg" alt="image3"></li>
       </ul>
        <!-- navigation button -->
-    <span  class="left" onclick="nextSlide(-1)"><</span>
-    <span  class="right" onclick="nextSlide(1)">></span>
+    <span  class="left" onclick="nextSlide(-1)">(:-</span>
+    <span  class="right" onclick="nextSlide(1)">-:)</span>
     </div>
   </div>
 </section>
+
+
 <!-- --crud--section -->
-<section class="crud-section pt-5">
+<section class="crud-section pt-5 pb-5">
   <div class="container">
    <div class="row">
      <div class="col-md-4">
@@ -126,7 +104,7 @@
            <li><input type="text" placeholder="Name" id="name"class="form-control mb-2"></li>
            <li><input type="text" placeholder="Address" id="address" class="form-control mb-2"></li>
            <li><input type="number" placeholder="Age" id="age"class="form-control mb-2"></li>
-           <li><input type="button" value="Submit" id="submit" onclick="plusUser()" class="form-control mb-2 bg-primary text-white"></li>
+           <li><button type="button" id="submit" onclick="plusUser()" class="form-control mb-2 bg-primary text-white">ADD</button></li>
          </ul>
        </form>
        </div>
@@ -135,6 +113,7 @@
        <div class="users-wrapper">
          <h2 class="bg-dark text-white p-3"> USERS</h2>
          <table class="table table-striped" id="table-content">
+          <thead>
            <tr>
              <th>Name</th>
              <th>Address</th>
@@ -142,13 +121,30 @@
              <th></th>
              <th></th>
            </tr>
-           <tr>
+         </thead>
+           <tbody>
+           <tr id="row_1">
              <td>Billu</td>
              <td>Rohtak</td>
              <td>24</td>
-             <td><button class="btn btn-success form-control" id="edit">EDIT</button></td>
-             <td><button class="btn btn-danger form-control" id="delete">DELETE</button></td>
+             <td><button class="btn btn-success form-control" id="edit"id='delete'onclick='return  edit_row(this);'>EDIT</button></td>
+             <td><button class='btn btn-danger form-control'id='delete'onclick='return  delete_row(this);'>DELETE</button></td>
            </tr>
+              <tr id="row_2">
+             <td>Arham</td>
+             <td>Lakhnow</td>
+             <td>22</td>
+             <td><button class="btn btn-success form-control" id="edit"onclick='return  edit_row(this);'>EDIT</button></td>
+             <td><button class='btn btn-danger form-control'id='delete'onclick='return  delete_row(this);'>DELETE</button></td>
+           </tr>
+             <tr id="row_3">
+             <td>Eimir</td>
+             <td>Noida</td>
+             <td>21</td>
+             <td><button class="btn btn-success form-control" id="edit"onclick='return  edit_row(this);'>EDIT</button></td>
+             <td><button class='btn btn-danger form-control'id='delete'onclick='return  delete_row(this);'>DELETE</button></td>
+           </tr>
+         </tbody>
          </table>
         </div>
      </div>
@@ -161,21 +157,73 @@
   <script type="text/javascript">
  //crud
 
+ var rowCounter = document.querySelectorAll('tbody tr').length;
+ var editRowIndex = 1;
 
-function plusUser()
-{
+ function plusUser()
+{  
 var name = document.getElementById("name").value
 var address = document.getElementById("address").value
 var age = document.getElementById("age").value
 var addUser = [name, address, age];
-for (i = 0; i < 1; i++) {
-   document.getElementById("table-content").innerHTML += "<tr><td>"+name+"</td><td>"+address+"</td><td>"+age+"</td><td><button class='btn btn-success form-control'>EDIT</button></td><td><button class='btn btn-danger form-control'  onclick= "updateUser()">DELETE</button></td></tr>";
-}
+rowCounter++;
+     
+    if(editRowIndex == 1){
+          var newRow =document.createElement('tr');
+            newRow.id="row_"+rowCounter;
+         newRow.innerHTML="<td>"+name+"</td><td>"+address+"</td><td>"+age+"</td><td><button id='edit' class='btn btn-success form-control'onclick='return  edit_row(this);'>EDIT</button></td><td><button class='btn btn-danger form-control'id='delete'onclick='return  delete_row(this);'>DELETE</button></td>";
+        document.querySelector('tbody').appendChild(newRow);
+    }
+    else{
+
+         editRowIndex.innerHTML="<td>"+name+"</td><td>"+address+"</td><td>"+age+"</td><td><button id='edit' class='btn btn-success form-control'onclick='return  edit_row(this);'>EDIT</button></td><td><button class='btn btn-danger form-control'id='delete'onclick='return  delete_row(this);'>DELETE</button></td>";
+
+    }
+   
+ 
+
 document.getElementById("addUser").reset();
+// editRowIndex= 1;
+
 }
-function updateUser() {
- document.getElementsByClassName('table').deleteRow(0);
+
+// var edit = document.getElementById("edit")
+
+function delete_row(select) {
+  var row_delete = select.parentNode;
+  alert("Are You Sure");
+  row_delete.parentNode.remove();
 }
+
+function edit_row(selector) {
+    
+     var row_edit  = selector.parentNode.parentNode;
+
+     editRowIndex  = row_edit;
+     
+      document.querySelector('#name').value=row_edit.querySelector('td:first-child').innerHTML;
+      document.querySelector('#address').value=row_edit.querySelector('td:nth-child(2)').innerHTML;
+      document.querySelector('#age').value=row_edit.querySelector('td:nth-child(3)').innerHTML;
+
+   return false;
+}
+   
+ // var addUser = [name, address, age];
+ // var iterator = addUser.values();
+
+ // for (var elements of iterator){
+ //  console.log(elements);
+ //   }
+
+
+
+
+
+
+
+
+
+
 
 // slider
  var slide_index = 1;

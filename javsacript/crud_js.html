@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CRUD-JS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style type="text/css">
+	ul{
+		padding: 0;
+		margin: 0;
+	}
+	li{
+		list-style-type: none;
+	}
+</style>
+<body>
+<div class="container mt-2">
+	<h1 class="bg-warning text-white p-2 text-center">CRUD-JS</h1>
+	<div class="row">
+	<div class="col-md-6">
+    <h2 class="mb-4 bg-dark text-white p-3">ADD USER</h2>
+	<form action="" class="mb-5" id="formData">
+      <ul class="form-group">
+      	<li><input type="text" name="name" id ="name" placeholder="Name" class="form-control mb-3"></li>
+      	<li><input type="text" name="address" id="address" placeholder="Address" class="form-control mb-3"></li>
+      	<li><input type="number" name="age" id="age" placeholder="Age" class="form-control mb-3"></li>
+      	<li><a href="#" class="text-white bg-success btn d-block" id="add_btn" onclick="addUser();">ADD</a></li>
+      </ul>		
+	</form>
+	</div>
+	<div class="col-md-6">
+  <div class="table-wrapper">
+  	 <h2 class="mb-4 bg-dark text-white p-3">USERS</h2>
+  	<table class="table_content table table-striped">
+  			<thead>
+  		<tr>
+  		
+  				<th>NAME</th>
+  				<th>ADDRESS</th>
+  				<th>AGE</th>
+  				<th colspan="2"></th>
+  		</tr>
+  		</thead>
+         <tbody>
+         	<tr>
+         		<td>Billu</td>
+         		<td>villa</td>
+         		<td>23</td>
+         		<td><button class="text-white bg-success btn form-control">Edit</button></td>
+         		<td><button class="text-white bg-danger btn form-control">Delete</button></td>
+         	</tr>
+        </tbody>
+
+  	</table>
+  </div>
+  </div>
+  </div>
+</div>
+<script>
+var rowCounter = document.querySelectorAll('tbody tr').length;
+var rowEditIndex = 1;
+ 
+ function addUser(){
+ 	var name = document.getElementById("name").value;
+ 	var address = document.getElementById("address").value;
+ 	var age = document.getElementById("age").value;
+    rowCounter++;
+
+ 	 if(rowEditIndex == 1){
+         newRow = document.createElement('tr');
+         newRow.id = 'row_'+rowCounter;
+         newRow.innerHTML = "<td>"+name+"</td><td>"+address+"</td><td>"+age+"</td><td><button class='text-white bg-success btn form-control' onclick ='return edit_row(this);'>Edit</button></td><td><button class='text-white bg-danger btn form-control' onclick='return delete_row(this);'>Delete</button></td>";
+             document.querySelector('tbody').appendChild(newRow);
+ 	 }
+ 	 else{
+        rowEditIndex.innerHTML = "<td>"+name+"</td><td>"+address+"</td><td>"+age+"</td><td><button class='text-white bg-success btn form-control' onclick ='return edit_row(this);'>Edit</button></td><td><button class='text-white bg-danger btn form-control' onclick='return Delete_row(this);'>Delete</button></td>";
+ 	 }
+ 	 document.getElementById('formData').reset();
+ 	 rowEditIndex = 1 ;
+ }
+function delete_row(select){
+  var row_delete = select.parentNode.parentNode;
+   alert("Are You Sure!");
+   row_delete.remove();
+}
+
+function  edit_row(selector){
+
+	var row_edit =selector.parentNode.parentNode;
+
+	rowEditIndex = row_edit;
+
+	document.querySelector("#name").value = row_edit.querySelector("td:first-child").innerHTML;
+	document.querySelector("#address").value = row_edit.querySelector("td:nth-child(2)").innerHTML;
+	document.querySelector("#age").value = row_edit.querySelector("td:nth-child(3)").innerHTML;
+
+   return false;
+}
+
+
+</script>
+</body>
+</html>
